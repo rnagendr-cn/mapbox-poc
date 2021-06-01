@@ -20,6 +20,20 @@ const styles = {
     fontSize: "12px",
   },
   link: { textDecoration: "none", color: "black" },
+  data: {
+    margin: "5px 0",
+    fontSize: "12px",
+  },
+  bold: {
+    fontWeight: "bold",
+  },
+  continue: {
+    margin: "5px 0",
+    fontSize: "14px",
+  },
+  cntlink: {
+    margin: 0,
+  },
 }
 
 const LocationDetails = ({ classes, locationData }) => {
@@ -62,9 +76,29 @@ const LocationDetails = ({ classes, locationData }) => {
         src={locationData.imageUrl}
         alt={locationData.name}
       />
+      <p className={classes.data}>
+        <span className={classes.bold}>Temperature:</span>
+        {locationData.temperature}
+      </p>
+      <p className={classes.data}>
+        <span className={classes.bold}>Time Difference:</span>
+        {locationData.timeDifference}
+      </p>
+      <p className={classes.data}>
+        <span className={classes.bold}>Travel Time:</span>
+        {locationData.travelTime}
+      </p>
       {sections(locationData.section1)}
       {sections(locationData.section2)}
       {sections(locationData.section3)}
+      {locationData.recircLinks.length ? (
+        <>
+          <h4 className={classes.continue}>Continue Reading</h4>
+          {locationData.recircLinks.map((d, i) => (
+            <a href={d} className={classes.cntlink}>{`Link${i + 1}`}</a>
+          ))}
+        </>
+      ) : null}
     </div>
   )
 }
