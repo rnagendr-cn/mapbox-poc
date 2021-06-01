@@ -93,7 +93,6 @@ const Map = ({ classes, activeMonth, monthData, locationData }) => {
       return
     }
     flyTo(map, locationData)
-    console.log(locationData)
   }, [locationData])
 
   return <div ref={mapContainer} className={classes.mapContainer} />

@@ -8,7 +8,6 @@ export const formatLocationsData = (data) => {
 
 export const formatFullData = (data, json) => {
   return data.map((data, i) => {
-    // console.log(json)
     const geojson = json.features.find((d) => d.properties.name === data.name)
     return {
       id: i,
